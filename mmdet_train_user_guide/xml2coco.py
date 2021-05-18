@@ -138,3 +138,4 @@ if __name__ == '__main__':
     print("-------------------------------")
     print("train number:", len(xml_list_train))
     print("val number:", len(xml_list_val))
+    
