@@ -8,7 +8,9 @@ import xml.etree.ElementTree as ET
 path2 = "."
  
 START_BOUNDING_BOX_ID = 1
- 
+'''
+提取xml文件中的文本
+'''
 def get(root, name):
     return root.findall(name)
  
@@ -22,14 +24,12 @@ def get_and_check(root, name, length):
         vars = vars[0]
     return vars
  
- 
 def convert(xml_list, json_file):
     json_dict = {"images": [], "type": "instances", "annotations": [], "categories": []}
     categories = pre_define_categories.copy()
     bnd_id = START_BOUNDING_BOX_ID
     all_categories = {}
     for index, line in enumerate(xml_list):
-        # print("Processing %s"%(line))
         xml_f = line
         tree = ET.parse(xml_f)
         root = tree.getroot()
